@@ -4,15 +4,15 @@ const config: Config = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     colors: {
-      Primary: '#EB11D7',
-      Secondary: '#12CCFB',
-      Tertiary: '#6684ED',
-      Quarternary: '#EDBF66',
-      Black: '#0E0E0E',
-      White: '#FFFFFF',
-      Danger: '#DD1C1A',
-      Success: '#44AF69',
-      Warning: '#FCAB10',
+      primary: '#EB11D7',
+      secondary: '#12CCFB',
+      tertiary: '#6684ED',
+      quarternary: '#EDBF66',
+      black: '#0E0E0E',
+      white: '#FFFFFF',
+      danger: '#DD1C1A',
+      success: '#44AF69',
+      warning: '#FCAB10',
     },
 
     extend: {
