@@ -1,5 +1,4 @@
 import {Inter} from 'next/font/google';
-import Logo from '@/components/Logo';
 import AboutSection from '@/components/page-sections/AboutSection';
 import HeroSection from '@/components/page-sections/HeroSection';
 import StepsSection from '@/components/page-sections/StepsSection';
