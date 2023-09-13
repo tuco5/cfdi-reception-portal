@@ -5,15 +5,15 @@ const config: Config = {
   theme: {
     colors: {
       Primary: '#EB11D7',
-      Secondary: '12CCFB',
-      Tertiary: '6684ED',
-      Quarternary: 'EDBF66',
-      Black: '0E0E0E',
-      White: 'FFFFFF',
-      Danger: 'DD1C1A',
-      Success: '44AF69',
-      Warning: 'FCAB10',
-    }
+      Secondary: '#12CCFB',
+      Tertiary: '#6684ED',
+      Quarternary: '#EDBF66',
+      Black: '#0E0E0E',
+      White: '#FFFFFF',
+      Danger: '#DD1C1A',
+      Success: '#44AF69',
+      Warning: '#FCAB10',
+    },
 
     extend: {
       backgroundImage: {
