@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <div className="min-h-[50vh] flex justify-center items-center">
-        <Logo />
+        <Logo variant='black'/>
       </div>
       <HeroSection />
       <AboutSection />

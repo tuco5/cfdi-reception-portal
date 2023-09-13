@@ -11,9 +11,8 @@ interface LogoProps {
 }
 
 export default function Logo({ variant = 'black' }: LogoProps) {
-  return <div>Logo</div>;
+return (<Link href="/">
+  <Image src={VARIANT[variant]} alt="Logo" height={60} width={120} className="object-contain object-center h-16" />
+</Link>)
 }
 
-// <Link href="/">
-//   <Image src={VARIANT[variant]} alt="Logo" height={60} width={120} className="object-contain object-center h-16" />
-// </Link>
