@@ -4,9 +4,8 @@ const ICON = {
   friendly: <FriendlyIcon />,
 };
 
-interface IconProps {
+interface IconProps extends Props {
   name: 'bank' | 'structure-mind' | 'friendly';
-  className?: string;
 }
 export default function Icon({name, className = ''}: IconProps) {
   return <div className={className}>{ICON[name]}</div>;
