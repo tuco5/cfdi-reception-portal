@@ -1,3 +1,4 @@
+'use client';
 const ICON = {
   bank: <BankIcon />,
   'structure-mind': <StructuredMindIcon />,
