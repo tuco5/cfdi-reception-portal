@@ -10,9 +10,16 @@ interface LogoProps {
   variant?: 'white' | 'black';
 }
 
-export default function Logo({ variant = 'black' }: LogoProps) {
-return (<Link href="/">
-  <Image src={VARIANT[variant]} alt="Logo" height={60} width={120} className="object-contain object-center h-16" />
-</Link>)
+export default function Logo({variant = 'black'}: LogoProps) {
+  return (
+    <Link href="/">
+      <Image
+        src={VARIANT[variant]}
+        alt="Logo"
+        height={60}
+        width={120}
+        className="h-16 object-contain object-center"
+      />
+    </Link>
+  );
 }
-
