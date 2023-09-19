@@ -9,7 +9,7 @@ const menuLinks = [
 
 export default function Navbar() {
   return (
-    <header className="flex h-16 w-full justify-center bg-white bg-opacity-90 px-12 shadow-md">
+    <header className="flex h-16 w-full justify-center bg-white bg-opacity-[0.95] px-12 shadow-md fixed">
       <div className="flex w-full max-w-6xl items-center justify-between ">
         <div>
           <Logo />
@@ -34,7 +34,7 @@ export default function Navbar() {
   );
 }
 
-function Avatar() {
+export function Avatar() {
   return (
     <Link href="/signup" className="h-10 w-10">
       <svg
