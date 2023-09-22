@@ -1,5 +1,5 @@
 import Icon from '../Icon';
-import AboutCard from './AboutCard';
+import AboutCard from '../cards/AboutCard';
 
 export default function AboutSection() {
   return (
