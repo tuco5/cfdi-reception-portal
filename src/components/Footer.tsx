@@ -10,7 +10,7 @@ const menuLinks = [
 ];
 export default function Footer() {
   return (
-    <footer className="mb-96 flex w-full justify-center bg-black px-10 text-white">
+    <footer className="flex w-full justify-center bg-black px-10 text-white">
       <div className="flex h-56 w-full max-w-6xl flex-col">
         <div className="flex h-full w-full items-center justify-between">
           <Logo variant="white" size="md" />
