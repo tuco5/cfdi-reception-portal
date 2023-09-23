@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Logo from './Logo';
+import NavItem from './NavItem';
 
 const menuLinks = [
   {href: '/', label: 'Inicio'},
@@ -9,20 +10,16 @@ const menuLinks = [
 
 export default function Navbar() {
   return (
-    <header className="flex h-16 w-full justify-center bg-white bg-opacity-[0.95] px-12 shadow-md fixed">
+    <header className="fixed flex h-16 w-full justify-center bg-white bg-opacity-[0.95] px-12 shadow-md">
       <div className="flex w-full max-w-6xl items-center justify-between ">
         <div>
           <Logo />
         </div>
         <nav className="flex h-full w-1/3 max-w-sm items-center justify-between">
           {menuLinks.map(({href, label}) => (
-            <Link
-              key={href}
-              href={href}
-              className="h-1/2 w-full border-r border-black pt-0.5 text-center transition-all duration-300 last:border-0 hover:bg-black hover:text-white"
-            >
+            <NavItem key={href} href={href}>
               {label}
-            </Link>
+            </NavItem>
           ))}
         </nav>
         {/* TODO: Add hover effect whe colors are ready */}
