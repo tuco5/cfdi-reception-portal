@@ -1,7 +1,12 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}', 
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}', 
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',  
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
       primary: '#EB11D7',
@@ -22,6 +27,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [
+    require("@nextui-org/react"),
+  ],
 };
 export default config;
