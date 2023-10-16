@@ -17,7 +17,7 @@ export default function NavItem({variant = 'black', href, children, className = 
       key={href}
       href={href}
       className={twMerge(
-        'h-1/2 w-full border-r pt-0.5 text-center transition-all duration-300 last:border-0 ',
+        'w-full border-r py-1 text-center text-lg transition-all duration-300 last:border-0 ',
         VARIANT[variant],
         className
       )}
