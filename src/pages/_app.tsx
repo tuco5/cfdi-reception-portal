@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextUIProvider>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </NextUIProvider>
   );
 }
