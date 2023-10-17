@@ -1,5 +1,3 @@
-'use client';
-
 interface AboutCardProps {
   title: string;
   children: React.ReactNode;
