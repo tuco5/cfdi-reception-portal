@@ -6,7 +6,7 @@ export default function AboutSection() {
       <h2 className="mb-8 mt-14 h-16 text-5xl font-bold text-tertiary">
         Fácil de usar, conoce más...
       </h2>
-      <div className="flex items-center justify-center gap-14">
+      <div className="flex items-center justify-center gap-20">
         <AboutCard title="Amigable" Icon={<Icon name="friendly" className="h-24 w-24" />}>
           Plataforma fácil de usar. No requiere mayor capacitacion para comenzar.
         </AboutCard>

@@ -17,7 +17,7 @@ import {
 const menuLinks = [
   {href: '/', label: 'Inicio'},
   {href: '/pricing', label: 'Precio'},
-  {href: '/contact-us', label: 'Contacto'},
+  {href: '/#contact-us', label: 'Contacto'},
 ];
 
 export default function Header() {

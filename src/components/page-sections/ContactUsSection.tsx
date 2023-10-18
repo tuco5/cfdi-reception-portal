@@ -3,7 +3,7 @@ import Icon from '../Icon';
 
 export default function ContactUsSection() {
   return (
-    <div className="flex min-h-screen flex-col items-center gap-32">
+    <div id="contact-us" className="flex min-h-screen flex-col items-center gap-32">
       <div className="flex h-52 w-full items-center justify-center bg-black text-center">
         <h2 className="text-5xl font-semibold tracking-widest text-white">
           ¿Tienes dudas? Contactanos...
