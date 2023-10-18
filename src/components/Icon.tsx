@@ -13,21 +13,22 @@ interface IconProps extends Props {
 
 /**
  * Icon component
- * @param {IconName} name - The variant of the icon.
+ * @param {IconName} name - The name of the icon you want to render.
  */
-export default function Icon({name, className = ''}: IconProps) {
-  return <div className={className}>{ICON[name]}</div>;
+export default function Icon({name, ...props}: IconProps) {
+  const _Icon = ICON[name];
+  return <_Icon {...props} />;
 }
 
 const ICON = {
-  bank: <BankIcon />,
-  'structure-mind': <StructuredMindIcon />,
-  friendly: <FriendlyIcon />,
-  'account-check': <AccountCheck />,
-  'create-portal': <CreatePortal />,
-  help: <Help />,
-  schedule: <Schedule />,
-  mail: <Mail />,
+  bank: BankIcon,
+  'structure-mind': StructuredMindIcon,
+  friendly: FriendlyIcon,
+  'account-check': AccountCheck,
+  'create-portal': CreatePortal,
+  help: Help,
+  schedule: Schedule,
+  mail: Mail,
 };
 
 function FriendlyIcon(props: React.SVGProps<SVGSVGElement>) {
