@@ -5,7 +5,8 @@ type IconName =
   | 'account-check'
   | 'create-portal'
   | 'help'
-  | 'schedule';
+  | 'schedule'
+  | 'mail';
 interface IconProps extends Props {
   name: IconName;
 }
@@ -26,11 +27,13 @@ const ICON = {
   'create-portal': <CreatePortal />,
   help: <Help />,
   schedule: <Schedule />,
+  mail: <Mail />,
 };
 
-function FriendlyIcon() {
+function FriendlyIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
@@ -65,9 +68,10 @@ function FriendlyIcon() {
   );
 }
 
-function StructuredMindIcon() {
+function StructuredMindIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
@@ -119,9 +123,10 @@ function StructuredMindIcon() {
   );
 }
 
-function BankIcon() {
+function BankIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
@@ -143,9 +148,10 @@ function BankIcon() {
   );
 }
 
-function AccountCheck() {
+function AccountCheck(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64.000000 64.000000"
@@ -176,9 +182,10 @@ function AccountCheck() {
   );
 }
 
-function CreatePortal() {
+function CreatePortal(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100.000000 100.000000"
@@ -209,9 +216,10 @@ function CreatePortal() {
   );
 }
 
-function Help() {
+function Help(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100.000000 100.000000"
@@ -247,9 +255,10 @@ function Help() {
   );
 }
 
-function Schedule() {
+function Schedule(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100.000000 100.000000"
@@ -294,6 +303,26 @@ function Schedule() {
  -50z"
         />
       </g>
+    </svg>
+  );
+}
+
+function Mail(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height="1em"
+      role="presentation"
+      viewBox="0 0 24 24"
+      width="1em"
+      {...props}
+    >
+      <path
+        d="M17 3.5H7C4 3.5 2 5 2 8.5V15.5C2 19 4 20.5 7 20.5H17C20 20.5 22 19 22 15.5V8.5C22 5 20 3.5 17 3.5ZM17.47 9.59L14.34 12.09C13.68 12.62 12.84 12.88 12 12.88C11.16 12.88 10.31 12.62 9.66 12.09L6.53 9.59C6.21 9.33 6.16 8.85 6.41 8.53C6.67 8.21 7.14 8.15 7.46 8.41L10.59 10.91C11.35 11.52 12.64 11.52 13.4 10.91L16.53 8.41C16.85 8.15 17.33 8.2 17.58 8.53C17.84 8.85 17.79 9.33 17.47 9.59Z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
