@@ -1,3 +1,4 @@
+import {Button} from '@nextui-org/react';
 import Icon from '../Icon';
 
 export default function StepsSection() {
@@ -8,7 +9,7 @@ export default function StepsSection() {
           En simples pasos comienza ya...
         </h2>
 
-        <div className="mt-40 flex w-full items-stretch justify-between gap-4">
+        <div className="flex w-full items-stretch justify-between gap-4">
           <StepsCard
             title="Paso 1"
             Icon={<Icon name="account-check" className="h-[4.5rem] w-[4.5rem]" />}
@@ -28,6 +29,15 @@ export default function StepsSection() {
             Programa tus pagos y automátiza tus procesos
           </StepsCard>
         </div>
+
+        <Button
+          color="secondary"
+          className="w-fit px-16 text-lg hover:-translate-y-0.5"
+          size="lg"
+          radius="full"
+        >
+          Crear cuenta
+        </Button>
       </div>
     </section>
   );
