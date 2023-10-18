@@ -13,7 +13,7 @@ export default function StepsSection() {
             title="Paso 1"
             Icon={<Icon name="account-check" className="h-[4.5rem] w-[4.5rem]" />}
           >
-            Crea una cuenta y registra tus datos fiscales.
+            Crea una cuenta y registra tus datos fiscales
           </StepsCard>
           <span className="pt-28 text-5xl text-white">&rarr;</span>
           <StepsCard title="Paso 2" Icon={<Icon name="create-portal" className="h-16 w-16" />}>
