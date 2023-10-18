@@ -1,4 +1,3 @@
-import {twMerge} from 'tailwind-merge';
 import Button from '../Button';
 
 export default function HeroSection() {
