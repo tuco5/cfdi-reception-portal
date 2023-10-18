@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Logo from './Logo';
-import NavItem from './NavItem';
+import NavItem from './MenuLink';
 import Link from 'next/link';
 
 const menuLinks = [
@@ -17,7 +17,7 @@ export default function Footer() {
 
           <div className="flex w-full max-w-xl justify-around">
             {menuLinks.map(({href, label}) => (
-              <NavItem key={href} href={href} variant="white" className="h-8">
+              <NavItem key={href} href={href} variant="white" className="text-sm">
                 {label}
               </NavItem>
             ))}

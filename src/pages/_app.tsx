@@ -1,13 +1,13 @@
-import {NextUIProvider} from "@nextui-org/react";
+import {NextUIProvider} from '@nextui-org/react';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
-import type { AppProps } from 'next/app';
+import Header from '@/components/Header';
+import type {AppProps} from 'next/app';
 import '@/styles/globals.css';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({Component, pageProps}: AppProps) {
   return (
     <NextUIProvider>
-      <Navbar />
+      <Header />
       <Component {...pageProps} />
       <Footer />
     </NextUIProvider>
