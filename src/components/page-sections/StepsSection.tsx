@@ -3,6 +3,9 @@ import Icon from '../Icon';
 import {SignedOut} from '@clerk/nextjs';
 
 export default function StepsSection() {
+  const IconStyle1 = 'h-[4.5rem] w-[4.5rem]';
+  const IconStyle2 = 'h-16 w-16';
+
   return (
     <section className="flex min-h-screen items-center justify-center bg-steps bg-cover bg-center bg-no-repeat">
       <div className="flex h-screen w-full max-w-[1400px] flex-col items-center justify-center gap-32">
@@ -11,22 +14,19 @@ export default function StepsSection() {
         </h2>
 
         <div className="flex w-full items-stretch justify-between gap-4">
-          <StepsCard
-            title="Paso 1"
-            Icon={<Icon name="account-check" className="h-[4.5rem] w-[4.5rem]" />}
-          >
+          <StepsCard title="Paso 1" Icon={<Icon name="account-check" className={IconStyle1} />}>
             Crea una cuenta y registra tus datos fiscales
           </StepsCard>
           <span className="pt-28 text-5xl text-white">&rarr;</span>
-          <StepsCard title="Paso 2" Icon={<Icon name="create-portal" className="h-16 w-16" />}>
+          <StepsCard title="Paso 2" Icon={<Icon name="create-portal" className={IconStyle2} />}>
             Crea un portal e invita a tus proveedores
           </StepsCard>
           <span className="pt-28 text-5xl text-white">&rarr;</span>
-          <StepsCard title="Paso 3" Icon={<Icon name="help" className="h-16 w-16" />}>
+          <StepsCard title="Paso 3" Icon={<Icon name="help" className={IconStyle2} />}>
             Solicita a tus proveedores que comiencen a cargar sus documentos físcales al portal
           </StepsCard>
           <span className="pt-28 text-5xl text-white">&rarr;</span>
-          <StepsCard title="Paso 4" Icon={<Icon name="schedule" className="h-16 w-16" />}>
+          <StepsCard title="Paso 4" Icon={<Icon name="schedule" className={IconStyle2} />}>
             Programa tus pagos y automátiza tus procesos
           </StepsCard>
         </div>
