@@ -1,4 +1,6 @@
+import {SignUpButton, SignedIn, SignedOut} from '@clerk/nextjs';
 import {Button} from '@nextui-org/react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -11,15 +13,30 @@ export default function HeroSection() {
           organiza tus pagos.
         </p>
         <div className="mt-16 flex w-full justify-center gap-28">
-          <Button
-            size="lg"
-            radius="full"
-            className="w-full max-w-[190px] px-8 text-xl hover:-translate-y-0.5"
-            color="secondary"
-            variant="shadow"
-          >
-            Comienza Ya
-          </Button>
+          <SignedOut>
+            <SignUpButton>
+              <Button
+                size="lg"
+                radius="full"
+                className="w-full max-w-[190px] px-8 text-xl hover:-translate-y-0.5"
+                color="secondary"
+                variant="shadow"
+              >
+                Comienza Ya
+              </Button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <Button
+              color="secondary"
+              variant="shadow"
+              size="lg"
+              radius="full"
+              className="w-full max-w-[190px] px-8 text-xl hover:-translate-y-0.5"
+            >
+              <Link href="/dashboard">Portales &rarr;</Link>
+            </Button>
+          </SignedIn>
           <Button
             size="lg"
             radius="full"
@@ -27,7 +44,7 @@ export default function HeroSection() {
             color="secondary"
             variant="flat"
           >
-            Planes...
+            <Link href="/pricing">Planes...</Link>
           </Button>
         </div>
       </div>

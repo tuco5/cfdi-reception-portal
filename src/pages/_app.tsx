@@ -1,15 +1,15 @@
-import {NextUIProvider} from '@nextui-org/react';
+import type {AppProps} from 'next/app';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import type {AppProps} from 'next/app';
+import Providers from './_providers';
 import '@/styles/globals.css';
 
 export default function App({Component, pageProps}: AppProps) {
   return (
-    <NextUIProvider>
+    <Providers>
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </NextUIProvider>
+    </Providers>
   );
 }
