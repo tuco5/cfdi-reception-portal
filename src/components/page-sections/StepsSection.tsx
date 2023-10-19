@@ -1,5 +1,6 @@
 import {Button} from '@nextui-org/react';
 import Icon from '../Icon';
+import {SignedOut} from '@clerk/nextjs';
 
 export default function StepsSection() {
   return (
@@ -29,15 +30,16 @@ export default function StepsSection() {
             Programa tus pagos y automátiza tus procesos
           </StepsCard>
         </div>
-
-        <Button
-          color="secondary"
-          className="w-fit px-14 text-xl hover:-translate-y-0.5"
-          size="lg"
-          radius="full"
-        >
-          Crear cuenta
-        </Button>
+        <SignedOut>
+          <Button
+            color="secondary"
+            className="w-fit px-16 text-lg hover:-translate-y-0.5"
+            size="lg"
+            radius="full"
+          >
+            Crear cuenta
+          </Button>
+        </SignedOut>
       </div>
     </section>
   );
