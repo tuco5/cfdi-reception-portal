@@ -1,102 +1,89 @@
-import {Button, Input, Select, SelectItem} from '@nextui-org/react';
+import CompanyForm from '@/components/forms/CompanyForm';
+import InviteSuppliersForm from '@/components/forms/InviteSuppliersForm';
+import InviteTeamMembersForm from '@/components/forms/InviteTeamMembersForm';
+import UploadLogoForm from '@/components/forms/UploadLogoForm';
+import {useState} from 'react';
+import {twMerge} from 'tailwind-merge';
 
-const RegimenFiscalList = [
-  'Régimen de incorporación fiscal (RIF).',
-  'Régimen Simplificado de Confianza (RESICO).',
-  'Régimen de actividad empresarial.',
-  'Régimen de arrendamiento de inmuebles.',
-  'Régimen de actividades profesionales (honorarios).',
-  'Régimen de Asalariado.',
-];
+const registrationSteps = ['Datos físcales', 'Logo', 'Usuarios', 'Invitar Proveedores'];
 
 export default function NewPortalPage() {
+  const [progress, setProgress] = useState(1);
+
+  const onContinue = () => {
+    if (progress === registrationSteps.length) return;
+    setProgress(prevState => prevState + 1);
+  };
+
   return (
     <div className="flex h-[92vh] justify-center bg-slate-800">
       <div className="flex w-full max-w-[1400px]">
         <div className="flex w-full items-center justify-center bg-slate-500">
-          {/* Tarjeta Registro */}
-          <div className="flex h-4/5 w-4/5 flex-col gap-6 rounded-2xl border-[3px] border-black bg-white p-8">
-            <h2 className="text-4xl font-bold">Datos físcales</h2>
-            <div className="flex gap-6">
-              <Input
-                color="default"
-                label="Nombre o razón social"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-              <Input
-                label="Nombre comercial"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-            </div>
-
-            <div className="flex gap-24">
-              <Input
-                color="default"
-                label="RFC"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-              <Input
-                label="CP"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-            </div>
-
-            <Select
-              label="Regimen fiscal"
-              isRequired
-              classNames={{trigger: 'bg-slate-300', popover: 'bg-slate-200'}}
-            >
-              {RegimenFiscalList.map(regimen => (
-                <SelectItem key={regimen}>{regimen}</SelectItem>
-              ))}
-            </Select>
-
-            <h2 className="text-4xl font-bold">Contácto</h2>
-            <Input
-              color="default"
-              label="Nombre de contácto"
-              isRequired
-              isClearable
-              classNames={{inputWrapper: 'bg-slate-300'}}
-            />
-            <div className="flex gap-24">
-              <Input
-                color="default"
-                label="Correo electónico"
-                type="email"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-              <Input
-                label="Teléfono"
-                type="tel"
-                isRequired
-                isClearable
-                classNames={{inputWrapper: 'bg-slate-300'}}
-              />
-            </div>
-            <Button
-              color="secondary"
-              variant="shadow"
-              radius="full"
-              className="mt-4 w-fit self-center px-8 text-xl"
-              size="lg"
-            >
-              Continuar
-            </Button>
-          </div>
+          {progress === 1 && <CompanyForm onSubmit={onContinue} />}
+          {progress === 2 && <UploadLogoForm />}
+          {progress === 3 && <InviteTeamMembersForm />}
+          {progress === 4 && <InviteSuppliersForm />}
         </div>
-        <div className="w-80 bg-black"></div>
+        <div className="flex w-80  flex-col justify-center bg-black px-4">
+          <ProgressRegistration
+            steps={registrationSteps}
+            current={progress}
+            onNavigate={(step: number) => setProgress(step)}
+          />
+        </div>
       </div>
+    </div>
+  );
+}
+
+interface ProgressRegistration extends Props {
+  steps: string[];
+  current?: number;
+  onNavigate: (s: number) => void;
+}
+function ProgressRegistration({steps, current = 1, onNavigate}: ProgressRegistration) {
+  const style =
+    'bg-gradient-to-b from-secondary from-50% to-white to-50% bg-[length:200%_200%] transition-all bg-bottom';
+  const iconStyle = 'flex h-8 w-8 items-center justify-center rounded-full';
+  const textStyle = 'bg-clip-text text-transparent';
+  const activeStyle = 'bg-top font-bold';
+
+  return (
+    <div className="flex flex-col gap-2 text-xl">
+      {steps.map((step, index) => (
+        <div key={step}>
+          <button
+            onClick={() => onNavigate(index + 1)}
+            className="flex items-center gap-4 font-light"
+          >
+            <span
+              className={twMerge(
+                style,
+                iconStyle,
+                'bg-[length:600%_600%]',
+                index < current && activeStyle
+              )}
+            >
+              {index + 1}
+            </span>
+            <span className={twMerge(style, textStyle, index < current && activeStyle)}>
+              {step}
+            </span>
+          </button>
+          {index + 1 !== steps.length && (
+            <span
+              className={twMerge(
+                'ml-2 text-4xl text-white',
+                style,
+                textStyle,
+                index < current - 1 ? 'bg-top' : 'bg-bottom'
+              )}
+            >
+              &darr;
+            </span>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
