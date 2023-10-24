@@ -9,6 +9,12 @@ const menuLinks = [
   {href: '/#contact-us', label: 'Contacto'},
 ];
 
+const userMenuLinks = [
+  {href: '/dashboard', label: 'Inicio'},
+  {href: '/pricing', label: 'Precio'},
+  {href: '/#contact-us', label: 'Contacto'},
+];
+
 export default function Header() {
   return (
     <Navbar shouldHideOnScroll className="py-2" maxWidth="xl">
@@ -17,20 +23,39 @@ export default function Header() {
       </NavbarBrand>
 
       <NavbarContent justify="center" className="min-w-[350px] gap-0">
-        {menuLinks.map(({href, label}) => (
-          <CustomLink key={href} href={href}>
-            {label}
-          </CustomLink>
-        ))}
+        <SignedOut>
+          {menuLinks.map(({href, label}) => (
+            <CustomLink key={href} href={href}>
+              {label}
+            </CustomLink>
+          ))}
+        </SignedOut>
+        <SignedIn>
+          {userMenuLinks.map(({href, label}) => (
+            <CustomLink key={href} href={href}>
+              {label}
+            </CustomLink>
+          ))}
+        </SignedIn>
       </NavbarContent>
 
       <NavbarContent justify="end">
         <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton
+            afterSignOutUrl="/"
+            showName
+            appearance={{
+              elements: {
+                userButtonBox: 'flex-row-reverse',
+                avatarBox: 'h-10 w-10',
+                userButtonOuterIdentifier: 'max-w-[100px] truncate overflow-hidden',
+              },
+            }}
+          />
         </SignedIn>
 
         <SignedOut>
-          <SignInButton>
+          <SignInButton afterSignInUrl="/dashboard">
             <Button
               color="secondary"
               variant="shadow"
@@ -41,7 +66,7 @@ export default function Header() {
               Conectate
             </Button>
           </SignInButton>
-          <SignUpButton>
+          <SignUpButton afterSignUpUrl="/dashboard">
             <Button
               color="secondary"
               variant="flat"
