@@ -20,9 +20,9 @@ export default function NewPortalPage() {
       <div className="flex w-full max-w-[1400px]">
         <div className="flex w-full items-center justify-center bg-slate-500">
           {progress === 1 && <CompanyForm onSubmit={onContinue} />}
-          {progress === 2 && <UploadLogoForm />}
-          {progress === 3 && <InviteTeamMembersForm />}
-          {progress === 4 && <InviteSuppliersForm />}
+          {progress === 2 && <UploadLogoForm onSubmit={onContinue} />}
+          {progress === 3 && <InviteTeamMembersForm onSubmit={onContinue} />}
+          {progress === 4 && <InviteSuppliersForm onSubmit={onContinue} />}
         </div>
         <div className="flex w-80  flex-col justify-center bg-black px-4">
           <ProgressRegistration
