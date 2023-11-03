@@ -27,7 +27,7 @@ export default function NewPortalPage() {
     <div className="flex h-[92vh] justify-center bg-slate-800">
       <div className="flex w-full max-w-[1400px]">
         <div className="flex w-full items-center justify-center bg-slate-500">
-          <Form onSubmit={onContinue} onGoBack={onGoBack}>
+          <Form onSubmit={onContinue} onGoBack={onGoBack} progress={progress}>
             {progress === 1 && <CompanyForm className="flex flex-col gap-6" />}
             {progress === 2 && <UploadLogoForm className="flex flex-col gap-14" />}
             {progress === 3 && <InviteTeamMembersForm className="flex flex-col gap-6" />}
@@ -49,8 +49,9 @@ export default function NewPortalPage() {
 interface FormProps extends PropsWithChildren {
   onSubmit: () => void;
   onGoBack?: () => void;
+  progress?: number;
 }
-function Form({children, onSubmit, onGoBack = () => null}: FormProps) {
+function Form({children, onSubmit, onGoBack = () => null, progress = 1}: FormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit();
@@ -82,7 +83,7 @@ function Form({children, onSubmit, onGoBack = () => null}: FormProps) {
           size="lg"
           type="submit"
         >
-          Continuar
+          {progress === 4 ? 'Finalizar' : 'Continuar'}
         </Button>
       </div>
     </form>
