@@ -1,4 +1,4 @@
-import {Button, Input, Select, SelectItem} from '@nextui-org/react';
+import {Input, Select, SelectItem} from '@nextui-org/react';
 
 const RegimenFiscalList = [
   'Régimen de incorporación fiscal (RIF).',
