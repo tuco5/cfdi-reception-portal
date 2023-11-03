@@ -1,6 +1,4 @@
-import {Button, Input, Select, SelectItem} from '@nextui-org/react';
-
-const PerfilesList = ['Administrador', 'Supervisor', 'Capturista', 'Consulta'];
+import {Button, Input} from '@nextui-org/react';
 
 
 
@@ -18,7 +16,7 @@ export default function InviteSuppliersForm({onSubmit}: FormProps) {
       className="flex h-[675px] w-4/5 flex-col gap-6 rounded-2xl border-[3px] border-black bg-white p-8"
       onSubmit={handleSubmit}
     >
-      <h2 className="text-4xl font-bold">Agrega personas a tu equipo (opcional)</h2>
+      <h2 className="text-4xl font-bold">Agrega proveedores (opcional)</h2>
       <div className="flex gap-6">
         <Input
           color="default"
@@ -28,15 +26,7 @@ export default function InviteSuppliersForm({onSubmit}: FormProps) {
           classNames={{inputWrapper: 'bg-slate-300'}}
         />
 
-        <Select
-          label="Perfil de usuario"
-          isRequired
-          classNames={{trigger: 'bg-slate-300', popover: 'bg-slate-200'}}
-        >
-          {PerfilesList.map(regimen => (
-            <SelectItem key={regimen}>{regimen}</SelectItem>
-          ))}
-        </Select>
+       
       </div>
       <div className="h-40"></div>
       <Button
@@ -47,7 +37,7 @@ export default function InviteSuppliersForm({onSubmit}: FormProps) {
         size="lg"
         type="submit"
       >
-        Continuar
+        Finalizar
       </Button>
     </form>
   );
