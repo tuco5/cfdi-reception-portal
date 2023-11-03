@@ -4,3 +4,6 @@ interface Props {
 interface PropsWithChildren extends Props {
   children: React.ReactNode;
 }
+interface FormProps extends Props {
+  onSubmit: () => void;
+}

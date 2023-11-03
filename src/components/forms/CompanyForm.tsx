@@ -9,10 +9,7 @@ const RegimenFiscalList = [
   'Régimen de Asalariado.',
 ];
 
-interface CompanyFormProps extends Props {
-  onSubmit: () => void;
-}
-export default function CompanyForm({onSubmit}: CompanyFormProps) {
+export default function CompanyForm({onSubmit}: FormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit();

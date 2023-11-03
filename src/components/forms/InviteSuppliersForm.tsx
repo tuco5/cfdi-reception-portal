@@ -2,16 +2,16 @@ import {Button, Input, Select, SelectItem} from '@nextui-org/react';
 
 const PerfilesList = ['Administrador', 'Supervisor', 'Capturista', 'Consulta'];
 
-interface TeamMenbersFormProps extends Props {
-  onSubmit: () => void;
-}
 
-export default function InviteSuppliersForm({onSubmit}: TeamMenbersFormProps) {
+
+export default function InviteSuppliersForm({onSubmit}: FormProps) {
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit();
     // save data on DB
   };
+
 
   return (
     <form
