@@ -1,4 +1,4 @@
-import {Button, Input, Select, SelectItem} from '@nextui-org/react';
+import {Input, Select, SelectItem} from '@nextui-org/react';
 
 const RegimenFiscalList = [
   'Régimen de incorporación fiscal (RIF).',
@@ -9,21 +9,9 @@ const RegimenFiscalList = [
   'Régimen de Asalariado.',
 ];
 
-interface CompanyFormProps extends Props {
-  onSubmit: () => void;
-}
-export default function CompanyForm({onSubmit}: CompanyFormProps) {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit();
-    // save data on DB
-  };
-
+export default function CompanyForm(props: Props) {
   return (
-    <form
-      className="flex h-[675px] w-4/5 flex-col gap-6 rounded-2xl border-[3px] border-black bg-white p-8"
-      onSubmit={handleSubmit}
-    >
+    <div {...props}>
       <h2 className="text-4xl font-bold">Datos físcales</h2>
       <div className="flex gap-6">
         <Input
@@ -87,16 +75,6 @@ export default function CompanyForm({onSubmit}: CompanyFormProps) {
           classNames={{inputWrapper: 'bg-slate-300'}}
         />
       </div>
-      <Button
-        color="secondary"
-        variant="shadow"
-        radius="full"
-        className="mt-4 w-fit self-center px-8 text-xl"
-        size="lg"
-        type="submit"
-      >
-        Continuar
-      </Button>
-    </form>
+    </div>
   );
 }

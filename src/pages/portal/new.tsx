@@ -2,27 +2,37 @@ import CompanyForm from '@/components/forms/CompanyForm';
 import InviteSuppliersForm from '@/components/forms/InviteSuppliersForm';
 import InviteTeamMembersForm from '@/components/forms/InviteTeamMembersForm';
 import UploadLogoForm from '@/components/forms/UploadLogoForm';
-import {useState} from 'react';
+import {useRouter} from 'next/router';
+import {PropsWithChildren, useState} from 'react';
 import {twMerge} from 'tailwind-merge';
+import {Button} from '@nextui-org/react';
 
 const registrationSteps = ['Datos físcales', 'Logo', 'Usuarios', 'Invitar Proveedores'];
 
 export default function NewPortalPage() {
   const [progress, setProgress] = useState(1);
+  const router = useRouter();
 
   const onContinue = () => {
-    if (progress === registrationSteps.length) return;
+    if (progress === registrationSteps.length) return router.push('/dashboard');
     setProgress(prevState => prevState + 1);
+  };
+
+  const onGoBack = () => {
+    if (progress === 1) return router.back();
+    setProgress(prevState => prevState - 1);
   };
 
   return (
     <div className="flex h-[92vh] justify-center bg-slate-800">
       <div className="flex w-full max-w-[1400px]">
         <div className="flex w-full items-center justify-center bg-slate-500">
-          {progress === 1 && <CompanyForm onSubmit={onContinue} />}
-          {progress === 2 && <UploadLogoForm />}
-          {progress === 3 && <InviteTeamMembersForm />}
-          {progress === 4 && <InviteSuppliersForm />}
+          <Form onSubmit={onContinue} onGoBack={onGoBack} progress={progress}>
+            {progress === 1 && <CompanyForm className="flex flex-col gap-6" />}
+            {progress === 2 && <UploadLogoForm className="flex flex-col gap-14" />}
+            {progress === 3 && <InviteTeamMembersForm className="flex flex-col gap-6" />}
+            {progress === 4 && <InviteSuppliersForm className="flex flex-col gap-6" />}
+          </Form>
         </div>
         <div className="flex w-80  flex-col justify-center bg-black px-4">
           <ProgressRegistration
@@ -33,6 +43,50 @@ export default function NewPortalPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+interface FormProps extends PropsWithChildren {
+  onSubmit: () => void;
+  onGoBack?: () => void;
+  progress?: number;
+}
+function Form({children, onSubmit, onGoBack = () => null, progress = 1}: FormProps) {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit();
+    // Logic to save data on server
+  };
+
+  return (
+    <form
+      className="flex h-[675px] w-4/5 flex-col justify-between rounded-2xl border-[3px] border-black bg-white p-8"
+      onSubmit={handleSubmit}
+    >
+      {children}
+      <div className="flex gap-6 self-center">
+        <Button
+          color="secondary"
+          variant="bordered"
+          radius="full"
+          className="mt-4 w-fit self-center px-8 text-xl"
+          size="lg"
+          onClick={onGoBack}
+        >
+          Regresar
+        </Button>
+        <Button
+          color="secondary"
+          variant="shadow"
+          radius="full"
+          className="mt-4 w-fit self-center px-8 text-xl"
+          size="lg"
+          type="submit"
+        >
+          {progress === 4 ? 'Finalizar' : 'Continuar'}
+        </Button>
+      </div>
+    </form>
   );
 }
 

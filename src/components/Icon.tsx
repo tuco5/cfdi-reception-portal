@@ -6,7 +6,8 @@ type IconName =
   | 'create-portal'
   | 'help'
   | 'schedule'
-  | 'mail';
+  | 'mail'
+  | 'upload';
 interface IconProps extends Props {
   name: IconName;
 }
@@ -24,12 +25,42 @@ const ICON = {
   bank: BankIcon,
   'structure-mind': StructuredMindIcon,
   friendly: FriendlyIcon,
-  'account-check': AccountCheck,
-  'create-portal': CreatePortal,
-  help: Help,
-  schedule: Schedule,
-  mail: Mail,
+  'account-check': AccountCheckIcon,
+  'create-portal': CreatePortalIcon,
+  help: HelpIcon,
+  schedule: ScheduleIcon,
+  mail: MailIcon,
+  upload: UploadIcon,
 };
+
+function UploadIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      version="1.0"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64.000000 64.000000"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <g
+        transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+        fill="currentColor"
+        stroke="none"
+      >
+        <path
+          d="M267 492 c-20 -21 -37 -43 -37 -50 0 -19 25 -14 46 9 19 21 19 20 24
+ -82 4 -84 8 -104 20 -104 12 0 16 20 20 104 5 102 5 103 24 82 21 -23 46 -28
+ 46 -8 0 18 -72 87 -91 87 -8 0 -32 -17 -52 -38z"
+        />
+        <path
+          d="M107 224 c-12 -12 -8 -99 5 -112 19 -19 402 -17 417 2 18 21 10 111
+ -9 111 -11 0 -16 -13 -18 -47 l-3 -48 -179 0 -179 0 -3 47 c-3 44 -15 62 -31
+ 47z"
+        />
+      </g>
+    </svg>
+  );
+}
 
 function FriendlyIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -149,7 +180,7 @@ function BankIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function AccountCheck(props: React.SVGProps<SVGSVGElement>) {
+function AccountCheckIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -183,7 +214,7 @@ function AccountCheck(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function CreatePortal(props: React.SVGProps<SVGSVGElement>) {
+function CreatePortalIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -217,7 +248,7 @@ function CreatePortal(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function Help(props: React.SVGProps<SVGSVGElement>) {
+function HelpIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -256,7 +287,7 @@ function Help(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function Schedule(props: React.SVGProps<SVGSVGElement>) {
+function ScheduleIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -308,7 +339,7 @@ function Schedule(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function Mail(props: React.SVGProps<SVGSVGElement>) {
+function MailIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       aria-hidden="true"
